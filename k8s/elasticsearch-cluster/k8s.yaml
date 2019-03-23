@@ -86,7 +86,7 @@ spec:
             - name: "discovery.zen.minimum_master_nodes"
               value: "2"
             - name: "discovery.zen.ping.unicast.hosts"
-              value: '["es-data1","es-data2"]'
+              value: '["es-master:9300","es-data1:9300","es-data2:9300"]'
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -122,6 +122,10 @@ spec:
               value: "true"
             - name: "node.data"
               value: "true"
+            - name: "discovery.zen.minimum_master_nodes"
+              value: "2"
+            - name: "discovery.zen.ping.unicast.hosts"
+              value: '["es-master:9300","es-data1:9300","es-data2:9300"]'
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -157,6 +161,10 @@ spec:
               value: "true"
             - name: "node.data"
               value: "true"
+            - name: "discovery.zen.minimum_master_nodes"
+              value: "2"
+            - name: "discovery.zen.ping.unicast.hosts"
+              value: '["es-master:9300","es-data1:9300","es-data2:9300"]'
 
 
 #在宿主机执行：sudo sysctl -w vm.max_map_count=262144
