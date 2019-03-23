@@ -59,11 +59,11 @@ spec:
               name: es-9300
           env:
             - name: cluster.name
-              value: docker-cluster
+              value: "docker-cluster"
             - name: bootstrap.memory_lock
               value: true
             - name: ES_JAVA_OPTS
-              value: -Xms512m -Xmx512m
+              value: "-Xms512m -Xmx512m"
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -92,10 +92,10 @@ spec:
               name: es-9300
           env:
             - name: cluster.name
-              value: docker-cluster
+              value: "docker-cluster"
             - name: bootstrap.memory_lock
               value: true
             - name: ES_JAVA_OPTS
-              value: -Xms512m -Xmx512m
+              value: "-Xms512m -Xmx512m"
             - name: discovery.zen.ping.unicast.hosts
-              value: es-master1
+              value: "es-master1"
