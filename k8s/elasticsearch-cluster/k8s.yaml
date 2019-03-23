@@ -65,7 +65,7 @@ spec:
             - name: "node.master"
               value: "true"
             - name: "node.data"
-              value: "false"
+              value: "true"
             - name: "node.ingest"
               value: "false"
 ---
