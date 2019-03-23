@@ -60,8 +60,6 @@ spec:
           env:
             - name: "cluster.name"
               value: "docker-cluster"
-            - name: "bootstrap.memory_lock"
-              value: "true"
             - name: ES_JAVA_OPTS
               value: "-Xms1g -Xmx1g"
             - name: "node.master"
@@ -99,8 +97,6 @@ spec:
           env:
             - name: "cluster.name"
               value: "docker-cluster"
-            - name: "bootstrap.memory_lock"
-              value: "true"
             - name: ES_JAVA_OPTS
               value: "-Xms1g -Xmx1g"
             - name: "discovery.zen.ping.unicast.hosts"
