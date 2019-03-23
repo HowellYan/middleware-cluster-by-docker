@@ -6,3 +6,7 @@ spring:
         - redis-sentinel2:26379
         - redis-sentinel3:26379
       master: mymaster
+  data:
+    elasticsearch:
+      cluster-name:
+      cluster-nodes:
