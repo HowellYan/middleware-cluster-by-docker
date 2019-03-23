@@ -61,7 +61,7 @@ spec:
             - name: cluster.name
               value: "docker-cluster"
             - name: bootstrap.memory_lock
-              value: true
+              value: "true"
             - name: ES_JAVA_OPTS
               value: "-Xms512m -Xmx512m"
 ---
@@ -94,7 +94,7 @@ spec:
             - name: cluster.name
               value: "docker-cluster"
             - name: bootstrap.memory_lock
-              value: true
+              value: "true"
             - name: ES_JAVA_OPTS
               value: "-Xms512m -Xmx512m"
             - name: discovery.zen.ping.unicast.hosts
