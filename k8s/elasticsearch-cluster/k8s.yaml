@@ -50,7 +50,7 @@ spec:
     spec:
       containers:
         - name: es-master1
-          image: elasticsearch:latest
+          image: elasticsearch:6.6.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9200
@@ -89,7 +89,7 @@ spec:
     spec:
       containers:
         - name: es-data1
-          image: elasticsearch:latest
+          image: elasticsearch:6.6.2
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 9200
