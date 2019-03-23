@@ -83,12 +83,10 @@ spec:
               value: "true"
             - name: "node.data"
               value: "true"
-            - name: "node.ingest"
-              value: "false"
             - name: "discovery.zen.minimum_master_nodes"
               value: "2"
             - name: "discovery.zen.ping.unicast.hosts"
-              value: "es-data1,es-data2"
+              value: '["es-data1","es-data2"]'
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -121,7 +119,7 @@ spec:
             - name: ES_JAVA_OPTS
               value: "-Xms512m -Xmx512m"
             - name: "node.master"
-              value: "false"
+              value: "true"
             - name: "node.data"
               value: "true"
 ---
@@ -156,7 +154,7 @@ spec:
             - name: ES_JAVA_OPTS
               value: "-Xms512m -Xmx512m"
             - name: "node.master"
-              value: "false"
+              value: "true"
             - name: "node.data"
               value: "true"
 
