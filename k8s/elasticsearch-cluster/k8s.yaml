@@ -50,6 +50,10 @@ spec:
     spec:
       containers:
         - name: es-master1
+          command:
+            - sysctl
+            - -w
+            - vm.max_map_count=262144
           image: elasticsearch:6.6.2
           imagePullPolicy: IfNotPresent
           ports:
@@ -89,6 +93,10 @@ spec:
     spec:
       containers:
         - name: es-data1
+          command:
+            - sysctl
+            - -w
+            - vm.max_map_count=262144
           image: elasticsearch:6.6.2
           imagePullPolicy: IfNotPresent
           ports:
