@@ -51,6 +51,7 @@ spec:
       containers:
         - name: es-master1
           command:
+            - sudo
             - sysctl
             - -w
             - vm.max_map_count=262144
@@ -94,6 +95,7 @@ spec:
       containers:
         - name: es-data1
           command:
+            - sudo
             - sysctl
             - -w
             - vm.max_map_count=262144
