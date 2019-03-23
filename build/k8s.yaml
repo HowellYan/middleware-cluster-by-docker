@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-sentinel-app
+  namespace: cluster
+spec:
+  ports:
+    - name: app-8080
+      port: 8080
+      targetPort: 8080
+      nodePort: 30016
+      protocol: TCP
+  selector:
+    app: redis-sentinel-app
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-sentinel-app
+  namespace: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-sentinel-app
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel-app
+    spec:
+      containers:
+        - name: redis-sentinel-app
+          image: redis-sentinel-app:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: JAVA_OPTIONS
+              value: -Duser.timezone=GMT+8 -Xms128m -Xmx256m
