@@ -18,7 +18,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-sentinel-app
-  namespace: prod
+  namespace: cluster
 spec:
   replicas: 1
   selector:
