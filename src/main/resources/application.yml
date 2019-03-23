@@ -2,6 +2,7 @@ spring:
   redis:
     sentinel:
       nodes:
+        - redis-sentinel1:26379
         - redis-sentinel2:26379
         - redis-sentinel3:26379
-      master: redis-sentinel1:26379
+      master: mymaster
