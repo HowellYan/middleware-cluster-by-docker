@@ -1,14 +1,101 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch
+  name: es-master1
   namespace: cluster
 spec:
   ports:
-    - name: slave1-6379
-      port: 6379
-      targetPort: 6379
+    - name: es-9200
+      port: 9200
+      targetPort: 9200
+    - name: es-9300
+      port: 9300
+      targetPort: 9300
   selector:
-    app: redis-slave1
+    app: es-master1
   type: NodePort
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: es-data1
+  namespace: cluster
+spec:
+  ports:
+    - name: es-9200
+      port: 9200
+      targetPort: 9200
+    - name: es-9300
+      port: 9300
+      targetPort: 9300
+  selector:
+    app: es-data1
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-master1
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: es-master1
+  replicas: 1 # by default is 1
+  serviceName: es-master1
+  template:
+    metadata:
+      labels:
+        app: es-master1
+    spec:
+      containers:
+        - name: es-master1
+          image: elasticsearch:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9200
+              name: es-9200
+            - containerPort: 9300
+              name: es-9300
+          env:
+            - name: cluster.name
+              value: docker-cluster
+            - name: bootstrap.memory_lock
+              value: true
+            - name: ES_JAVA_OPTS
+              value: -Xms512m -Xmx512m
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-data1
+  namespace: cluster
+spec:
+  selector:
+    matchLabels:
+      app: es-data1
+  replicas: 1 # by default is 1
+  serviceName: es-data1
+  template:
+    metadata:
+      labels:
+        app: es-data1
+    spec:
+      containers:
+        - name: es-data1
+          image: elasticsearch:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9200
+              name: es-9200
+            - containerPort: 9300
+              name: es-9300
+          env:
+            - name: cluster.name
+              value: docker-cluster
+            - name: bootstrap.memory_lock
+              value: true
+            - name: ES_JAVA_OPTS
+              value: -Xms512m -Xmx512m
+            - name: discovery.zen.ping.unicast.hosts
+              value: es-master1
