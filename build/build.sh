@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build -t redis-sentinel-app .;
+docker build -t middleware-cluster-app .;

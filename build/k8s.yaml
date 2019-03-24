@@ -17,21 +17,21 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-sentinel-app
+  name: cluster-app
   namespace: cluster
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redis-sentinel-app
+      app: cluster-app
   template:
     metadata:
       labels:
-        app: redis-sentinel-app
+        app: cluster-app
     spec:
       containers:
-        - name: redis-sentinel-app
-          image: redis-sentinel-app:latest
+        - name: cluster-app
+          image: middleware-cluster-app:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
