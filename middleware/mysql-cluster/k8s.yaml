@@ -86,7 +86,7 @@ spec:
     spec:
       containers:
         - name: ndb-mgmd
-          image: mysql/mysql-cluster:latest
+          image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
             - ndb_mgmd
@@ -116,7 +116,7 @@ spec:
     spec:
       containers:
         - name: ndbd1
-          image: mysql/mysql-cluster:latest
+          image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
             - ndbd
@@ -146,7 +146,7 @@ spec:
     spec:
       containers:
         - name: ndbd2
-          image: mysql/mysql-cluster:latest
+          image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
             - ndbd
@@ -176,7 +176,7 @@ spec:
     spec:
       containers:
         - name: mysqld1
-          image: mysql/mysql-cluster:latest
+          image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
             - ndbd
@@ -206,7 +206,7 @@ spec:
     spec:
       containers:
         - name: mysqld2
-          image: mysql/mysql-cluster:latest
+          image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
             - ndbd
