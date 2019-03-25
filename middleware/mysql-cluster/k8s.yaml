@@ -179,7 +179,7 @@ spec:
           image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
-            - ndbd
+            - mysqld
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
@@ -209,7 +209,7 @@ spec:
           image: mysql-cluster-atomscat:latest
           command:
             - /entrypoint.sh
-            - ndbd
+            - mysqld
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
