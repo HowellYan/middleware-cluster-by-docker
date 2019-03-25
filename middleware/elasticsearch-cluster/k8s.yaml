@@ -87,6 +87,13 @@ spec:
               value: "2"
             - name: "discovery.zen.ping.unicast.hosts"
               value: "[es-node1:9300,es-node2:9300,es-node3:9300]"
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: esdata1
+      volumes:
+        - name: esdata1
+          hostPath:
+            path: /data/docker/elasticsearch/esdata1
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -126,6 +133,13 @@ spec:
               value: "2"
             - name: "discovery.zen.ping.unicast.hosts"
               value: "[es-node1:9300,es-node2:9300,es-node3:9300]"
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: esdata1
+      volumes:
+        - name: esdata2
+          hostPath:
+            path: /data/docker/elasticsearch/esdata2
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -165,6 +179,12 @@ spec:
               value: "2"
             - name: "discovery.zen.ping.unicast.hosts"
               value: "[es-node1:9300,es-node2:9300,es-node3:9300]"
-
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: esdata3
+      volumes:
+        - name: esdata3
+          hostPath:
+            path: /data/docker/elasticsearch/esdata3
 
 #在宿主机执行：sudo sysctl -w vm.max_map_count=262144
