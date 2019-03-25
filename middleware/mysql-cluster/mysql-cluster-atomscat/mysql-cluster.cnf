@@ -6,7 +6,7 @@ IndexMemory=18M
 
 [ndb_mgmd]
 NodeId=1
-hostname=127.0.0.1
+hostname=ndb-mgmd
 datadir=/var/lib/mysql
 
 [ndbd]

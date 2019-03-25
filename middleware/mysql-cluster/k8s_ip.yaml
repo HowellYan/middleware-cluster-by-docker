@@ -98,6 +98,10 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: Aa123456
+            - name: MY_POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
 ---
 apiVersion: apps/v1
 kind: StatefulSet
