@@ -90,7 +90,7 @@ spec:
           command:
             - /entrypoint.sh
             - ndb_mgmd
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3306
               name: node-3306
@@ -120,7 +120,7 @@ spec:
           command:
             - /entrypoint.sh
             - ndbd
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3306
               name: node-3306
@@ -150,7 +150,7 @@ spec:
           command:
             - /entrypoint.sh
             - ndbd
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3306
               name: node-3306
@@ -180,7 +180,7 @@ spec:
           command:
             - /entrypoint.sh
             - mysqld
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3306
               name: node-3306
@@ -210,7 +210,7 @@ spec:
           command:
             - /entrypoint.sh
             - mysqld
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 3306
               name: node-3306
