@@ -1,3 +1,4 @@
+# ndb_mgmd  >>>  数据节点ndbd   >>>  mysql服务
 version: '2.1'
 
 services:
