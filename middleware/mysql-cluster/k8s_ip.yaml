@@ -84,6 +84,7 @@ spec:
       labels:
         app: ndb-mgmd
     spec:
+      hostname: ndb-mgmd
       containers:
         - name: ndb-mgmd
           image: 192.168.31.148/middleware/mysql-cluster-atomscat:latest
@@ -114,6 +115,7 @@ spec:
       labels:
         app: ndbd1
     spec:
+      hostname: ndbd1
       containers:
         - name: ndbd1
           image: 192.168.31.148/middleware/mysql-cluster-atomscat:latest
@@ -144,6 +146,7 @@ spec:
       labels:
         app: ndbd2
     spec:
+      hostname: ndbd2
       containers:
         - name: ndbd2
           image: 192.168.31.148/middleware/mysql-cluster-atomscat:latest
@@ -174,6 +177,7 @@ spec:
       labels:
         app: mysqld1
     spec:
+      hostname: mysqld1
       containers:
         - name: mysqld1
           image: 192.168.31.148/middleware/mysql-cluster-atomscat:latest
@@ -204,6 +208,7 @@ spec:
       labels:
         app: mysqld2
     spec:
+      hostname: mysqld2
       containers:
         - name: mysqld2
           image: 192.168.31.148/middleware/mysql-cluster-atomscat:latest
