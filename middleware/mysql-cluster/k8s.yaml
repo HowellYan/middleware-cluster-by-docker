@@ -89,7 +89,7 @@ spec:
           image: mysql/mysql-cluster:latest
           command:
             - /entrypoint.sh
-            - ndb-mgmd
+            - ndb_mgmd
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
