@@ -100,7 +100,7 @@ spec:
     spec:
       containers:
         - name: redis-slave1
-          image: 192.168.31.148/middleware/redis-cluster-slave:latest
+          image: redis:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
@@ -124,7 +124,7 @@ spec:
     spec:
       containers:
         - name: redis-slave2
-          image: 192.168.31.148/middleware/redis-cluster-slave:latest
+          image: redis:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
@@ -148,7 +148,7 @@ spec:
     spec:
       containers:
         - name: redis-slave3
-          image: 192.168.31.148/middleware/redis-cluster-slave:latest
+          image: redis:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 6379
